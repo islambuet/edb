@@ -1,10 +1,11 @@
 const { app, BrowserWindow, Menu,ipcMain } = require('electron')
 const ejse = require('ejs-electron');
 
-let notLoggedUser={id:0,username:'guest',name:'Guest',user_group_id:0,infos:{},tasks: {}};
+let notLoggedUser={id:0,name:'Guest',user_group_id:0,infos:{},tasks: {},authToken:''};
 let basic_info={
     basePath:__dirname,
-    user:notLoggedUser
+    user:notLoggedUser,
+    baseURLApiServer:(app.isPackaged)?'https://analysis.api.malikseedsbd.com/api':'http://localhost/arm_analysis_api/public/api',
 }
 
 let mainWindow;
@@ -50,6 +51,11 @@ const createMainWindow = () => {
     ejse.data('system_base_path',basic_info['basePath'])
     mainWindow.loadFile('index.ejs').then(function (){ });
 };
+ipcMain.on("sendRequestToIpcMain", function(e, responseName,params={}) {
+    if(responseName=='basic_info'){
+        mainWindow.webContents.send(responseName,basic_info);
+    }
+})
 app.whenReady().then(() => {
     createMainWindow()
 })

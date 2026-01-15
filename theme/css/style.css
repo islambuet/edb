@@ -214,15 +214,19 @@ a:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    width: 100vw;
+    background: #808080ad;
     height: 100vh;
+    width: 100%;
+    position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.7);
-    opacity: 0.2;
-    z-index: 1001;
-    transition: all 0.5s;
+    z-index: 99999;
+}
+#system_loading div {
+    width: 190px;
+    height: 100px;
+    background: white;
+    border-radius: 8px;
 }
 .ui-datepicker{
     z-index: 1001!important;

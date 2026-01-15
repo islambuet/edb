@@ -1,0 +1,108 @@
+<div class="main container">
+    <div class="row justify-content-md-center center-align">
+        <div class="col-xl-8 col-12 shadow px-0">
+            <div class="card bg-authentication rounded-0 mb-0">
+                <div class="row m-0">
+                    <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
+                        <img src="<%= system_base_path %>/theme/images/login.png" alt="branding logo">
+                    </div>
+                    <div class="col-lg-6 col-12 p-0">
+                        <div class="card mb-0">
+                            <div class="card-header pb-1">
+                                <div class="card-title">
+                                    <h4 class="mb-0">Login</h4>
+                                </div>
+                            </div>
+                            <p class="px-2">Welcome, please login to your account.</p>
+                            <div class="card-content">
+                                <div class="card-body pt-1">
+                                    <form  id="formLogin">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="feather icon-user"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" id="user-name" placeholder="Username" name="item[username]" value=""  />
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend eye_password">
+                                                <span class="input-group-text" ><i class="feather icon-eye"></i></span>
+                                            </div>
+                                            <input type="password" class="form-control" placeholder="Password" name="item[password]" value="" required="" />
+                                        </div>
+                                        <button id="button_login" onclick="login()" type="button" class="btn btn-primary btn-inline waves-effect waves-light float-right">Login</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="login-footer">
+                                <!-- <router-link to="/users-groups">asdfasdf</router-link> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .main {
+        height: auto;
+    }
+    .login-left > img {
+        margin-left: 12%;
+    }
+    .center-align {
+        /*margin-top: 20vh;*/
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .center-align > div{
+        margin-top: 20vh;
+    }
+    .bg-authentication {
+        background-color: #eff2f7;
+    }
+    .input-group-text {
+        background-color: #ffffff;
+    }
+    .bg-authentication .login-footer {
+        padding: 0 1.5rem 3.5rem;
+    }
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        .bg-authentication {
+            width: 100%;
+        }
+        .center-align {
+            margin-top: 20vh;
+        }
+    }
+</style>
+<script>
+    /* global basic_info */
+    /* global showResponseError */
+    function login(){
+        let formData=new FormData(document.getElementById('formLogin'));
+        $.ajax({
+            url:"/user/login",
+            type: 'POST',
+            dataType: "JSON",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data, status)
+            {
+                if (data.error == "") {
+                    basic_info['user']=data.user;
+                    console.log(basic_info)
+
+                    //router.push("/");
+                }
+                else{
+                        showResponseError(data)
+                }
+            },
+        });
+    }
+    function systemPageLoaded(){
+
+    }
+</script>
