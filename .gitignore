@@ -1,0 +1,14 @@
+node_modules
+build
+logs/
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+SinglePack-win32-x64*
+MSSTIDSS-win32-x64*
+HMIMSSTIDSS-win32-x64*

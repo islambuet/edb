@@ -1,0 +1,19 @@
+{
+  "name": "EDB",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Shaiful Islam",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^39.2.7"
+  },
+  "dependencies": {
+    "ejs-electron": "^3.0.0",
+    "jquery": "^3.7.1"
+  }
+}
