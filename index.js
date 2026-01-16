@@ -74,6 +74,10 @@ ipcMain.on("sendRequestToIpcMain", function(e, responseName,params={}) {
     else if(responseName=='changeMenu'){
         changeMenu(params)
     }
+    else if(responseName=='logout'){
+        basic_info['user']=notLoggedUser;
+        changeMenu({'currentMenu':loginPage})
+    }
 })
 app.whenReady().then(() => {
     createMainWindow()
