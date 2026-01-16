@@ -5,29 +5,29 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>EDB</title>
-        <link rel="stylesheet" type="text/css" href="<%= system_base_path %>/theme/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="<%= system_base_path %>/theme/css/iconfont.css">
-        <link rel="stylesheet" type="text/css" href="<%= system_base_path %>/theme/css/icons_feather.min.css">
-        <link rel="stylesheet" type="text/css" href="<%= system_base_path %>/theme/css/palette-gradient.min.css">
-        <link rel="stylesheet" type="text/css" href="<%= system_base_path %>/theme/css/jquery.toast.css">
-        <link rel="stylesheet" type="text/css" href="<%= system_base_path %>/theme/bootstrap-icons/bootstrap-icons.css">
-        <link rel="stylesheet" type="text/css" href="<%= system_base_path %>/theme/css/style.css">
+        <link rel="stylesheet" type="text/css" href="<%= basic_info['basePath'] %>/theme/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="<%= basic_info['basePath'] %>/theme/css/iconfont.css">
+        <link rel="stylesheet" type="text/css" href="<%= basic_info['basePath'] %>/theme/css/icons_feather.min.css">
+        <link rel="stylesheet" type="text/css" href="<%= basic_info['basePath'] %>/theme/css/palette-gradient.min.css">
+        <link rel="stylesheet" type="text/css" href="<%= basic_info['basePath'] %>/theme/css/jquery.toast.css">
+        <link rel="stylesheet" type="text/css" href="<%= basic_info['basePath'] %>/theme/bootstrap-icons/bootstrap-icons.css">
+        <link rel="stylesheet" type="text/css" href="<%= basic_info['basePath'] %>/theme/css/style.css">
     </head>
     <body class="container-fluid">
 
     <script>window.$ = window.jQuery = require('jquery');</script>
-    <script type="text/javascript" src="<%= system_base_path %>/theme/js/popper.min.js"></script>
-    <script type="text/javascript" src="<%= system_base_path %>/theme/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<%= system_base_path %>/theme/js/moment.min.js"></script>
-    <script type="text/javascript" src="<%= system_base_path %>/theme/js/jquery.toast.js"></script>
-    <script type="text/javascript" src="<%= system_base_path %>/theme/js/site_info.js"></script>
-    <script type="text/javascript" src="<%= system_base_path %>/theme/js/global.js"></script>
+    <script type="text/javascript" src="<%= basic_info['basePath'] %>/theme/js/popper.min.js"></script>
+    <script type="text/javascript" src="<%= basic_info['basePath'] %>/theme/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%= basic_info['basePath'] %>/theme/js/moment.min.js"></script>
+    <script type="text/javascript" src="<%= basic_info['basePath'] %>/theme/js/jquery.toast.js"></script>
+    <script type="text/javascript" src="<%= basic_info['basePath'] %>/theme/js/site_info.js"></script>
+    <script type="text/javascript" src="<%= basic_info['basePath'] %>/theme/js/global.js"></script>
 
     <div id="system_loading" style="display: none">
         <div class="d-flex align-items-center justify-content-center">
-            <img src="<%= system_base_path %>/theme/images/loading.svg" alt="">
+            <img src="<%= basic_info['basePath'] %>/theme/images/loading.svg" alt="">
         </div>
     </div>
-    <div id="system_main_container"><%- include(system_base_path+'/tasks/login/index.ejs') %></div>
+    <div id="system_main_container"><%- include(basic_info['basePath']+'/tasks/'+basic_info['currentMenu']['file']) %></div>
     </body>
 </html>

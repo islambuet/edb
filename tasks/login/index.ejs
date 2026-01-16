@@ -4,7 +4,7 @@
             <div class="card bg-authentication rounded-0 mb-0">
                 <div class="row m-0">
                     <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
-                        <img src="<%= system_base_path %>/theme/images/login.png" alt="branding logo">
+                        <img src="<%= basic_info['basePath'] %>/theme/images/login.png" alt="branding logo">
                     </div>
                     <div class="col-lg-6 col-12 p-0">
                         <div class="card mb-0">
@@ -78,6 +78,7 @@
 </style>
 <script>
     /* global basic_info */
+    /* global ipcRenderer */
     /* global showResponseError */
     function login(){
         let formData=new FormData(document.getElementById('formLogin'));
@@ -91,7 +92,9 @@
             success: function (data, status)
             {
                 if (data.error == "") {
-                    basic_info['user']=data.user;
+                    //basic_info['user']=data.user;
+                    ipcRenderer.send("sendRequestToIpcMain", "setLoginUser", data.user);
+
                     console.log(basic_info)
 
                     //router.push("/");

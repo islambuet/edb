@@ -11,6 +11,7 @@ $(document).ready(function ()
 });
 ipcRenderer.on("basic_info", function(e, data) {
     basic_info=data;
+    $('title').text(systemSiteName+" "+systemVersion+"--"+basic_info['currentMenu']['title'])
     if (typeof systemPageLoaded === 'function') {
         systemPageLoaded();
     }
@@ -68,7 +69,6 @@ function showResponseError(data,where=0) {
     else {
         displayMessages = data['messages'];
     }
-    console.log(displayMessages)
     if(displayMessages){
         $.toast({
             //heading: '&nbsp',
@@ -79,4 +79,23 @@ function showResponseError(data,where=0) {
         });
     }
 }
-
+//toast end
+$(document).on("click", "#handler_left_sidebar", function(event)
+{
+    $('#system_left_sidebar').toggleClass('inactive');
+    $('#system_content').toggleClass('inactive_left_sidebar');
+});
+$(document).on("click", ".eye_password", function(event)
+{
+    let input=$(this).siblings('input');
+    if(input.attr('type')=='password')
+    {
+        $(this).find('i').removeClass('icon-eye').addClass('icon-eye-off');
+        input.attr('type','text');
+    }
+    else
+    {
+        $(this).find('i').removeClass('icon-eye-off').addClass('icon-eye');
+        input.attr('type','password');
+    }
+});

@@ -1,0 +1,25 @@
+<header id="system_top_bar" class="d-print-none">
+    <!-- LOGO -->
+    <div id="logo_container" class="d-none d-lg-block d-xl-block float-left">
+        <img style="height: 25px;" src="<%= basic_info['basePath'] %>/theme/images/logo.png" alt="">
+    </div>
+    <!-- Left Sidebar handler -->
+    <button id="handler_left_sidebar" class="handler-sidebar float-left">
+        <i class="bi bi-justify fs-3"></i>
+    </button>
+    <ul class="list-unstyled float-right mb-0">
+        <li>
+            <a class="nav-link dropdown-toggle mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <img src="<%= basic_info['basePath'] %>/theme/images/guest.png"  alt="profileImage" class="rounded-circle" style="height: 32px;width: 32px;">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-item">
+                    <h6 class="text-overflow m-0"><%= basic_info['user']['name']%></h6>
+                </div>
+                <a href="#" class="dropdown-item"><i class="bi bi-person-square"></i> Profile Settings</a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="system_ajax dropdown-item"><i class="icon-mid bi bi-power me-2"></i> Logout</a></div>
+            </div>
+        </li>
+    </ul>
+</header>
