@@ -86,7 +86,29 @@ function showServerNotRespondingError() {
 }
 function showResponseError(data,where=0) {
     let displayMessages='';
-    if (data.error == 'VALIDATION_FAILED') {
+    if (data.error == 'ACCESS_DENIED') {
+        ipcRenderer.send("sendRequestToIpcMain", "logout");
+        $.toast({
+            heading: 'Access Deny',
+            text: 'Sorry, you are not authorized to access this page. You may contact with system admin.',
+            icon: 'error', // predefined icon type
+            position: 'top-center',
+            hideAfter: false // auto-dismiss after 3 seconds
+        });
+    }
+    else if (data.error == 'API_OFFLINE') {
+        $.toast({
+            heading: 'Site Offline',
+            text: 'Site is currently offline. Wait some moment and refresh your browser. You may contact with system admin.',
+            icon: 'error', // predefined icon type
+            position: 'top-center',
+            hideAfter: false // auto-dismiss after 3 seconds
+        });
+    }
+    else if (data.error == 'USER_SESSION_EXPIRED') {
+        ipcRenderer.send("sendRequestToIpcMain", "logout");
+    }
+    else if (data.error == 'VALIDATION_FAILED') {
         if(typeof data['messages']=='string'){
             displayMessages = data['messages'];
         }else if(typeof data['messages']=='object'){

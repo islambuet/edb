@@ -191,6 +191,7 @@ a:focus {
 #system_content.inactive_right_sidebar{
     margin-right: 0;
 }
+.task_method{ display: none}
 @media (max-width:991px)
 {
     #system_content
